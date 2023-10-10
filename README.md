@@ -5,7 +5,8 @@
 3. Download [noita-vscode-debugger](https://github.com/Ismoh/noita-vscode-debugger/releases) mod and\
     go to `C:\Program Files (x86)\Steam\steamapps\common\Noita\mods\` and extract it there. [need help?](https://noita.wiki.gg/wiki/How_to_install_mods#Manual)
 4. Open your current own project in VSCode and add the following to your `launch.json` file:
-    <https://github.com/Ismoh/noita-vscode-debugger/blob/develop/.vscode/launch.json#L1-L22>
+    
+    https://github.com/Ismoh/noita-vscode-debugger/blob/develop/.vscode/launch.json#L1-L22
 
 5. Double check if `"cwd"` needs to be changed to Noita installation path. [need help?](https://help.steampowered.com/en/faqs/view/4BD4-4528-6B2E-8327#:~:text=Navigate%20to%20your%20Steam%20client,installations%20can%20be%20installed%20there.)
 6. Press `F5` to start debugging.
