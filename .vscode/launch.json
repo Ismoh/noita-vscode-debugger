@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Noita with debugger",
+      "type": "lua-local",
+      "request": "launch",
+      "program": {
+        "command": "noita_dev.exe",
+        "communication": "stdio"
+      },
+      "args": ["-debug_lua", "-no-console", "-luadebugger"],
+      "stopOnEntry": true,
+      "cwd": "C:/Program Files (x86)/Steam/steamapps/common/Noita",
+      "env": {
+        "LOCAL_LUA_DEBUGGER_VSCODE": "1"
+      },
+      "verbose": true
+    }
+  ]
+}
