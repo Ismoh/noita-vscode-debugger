@@ -2,5 +2,8 @@
     "cSpell.words": [
         "lldebugger",
         "Noita"
+    ],
+    "Lua.diagnostics.globals": [
+        "lldebugger"
     ]
 }

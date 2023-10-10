@@ -1,0 +1,6 @@
+<Mod
+    name="Noita VSCode Debugger"
+    description="Debug Noita with VSCode"
+    request_no_api_restrictions="1"
+    download_link="https://github.com/Ismoh/noita-vscode-debugger/releases/latest"
+></Mod>
