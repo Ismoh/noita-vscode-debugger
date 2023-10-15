@@ -1,7 +1,9 @@
 {
     "cSpell.words": [
         "lldebugger",
-        "Noita"
+        "luasec",
+        "Noita",
+        "packagename"
     ],
     "Lua.diagnostics.globals": [
         "lldebugger"
