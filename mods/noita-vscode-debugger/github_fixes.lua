@@ -27,7 +27,7 @@ function GitHubFixes:downloadAndApplyFixes()
         self:applyFixes(relativeFilePath, body)
 
         if string.contains(relativeFilePath, "lldebugger.lua") then
-            
+            self:updateLLDebbugerLua(body)
         end
     end
     print("Successfully applied all fixes!")
@@ -38,18 +38,19 @@ function GitHubFixes:applyFixes(relativeFilePath, body)
             ("%s/%s"):format(self.fileUtils:getVSCodeExtensionPath(), relativeFilePath), "w"),
         ("Unable to find '%s'! Did you install the VSCode extension 'Local Lua Debugger'?"):format(relativeFilePath))
     file:write(body)
+    file:flush()
     file:close()
     print(("Successfully applied fixes to '%s'!"):format(relativeFilePath))
 end
 
 function GitHubFixes:updateLLDebbugerLua(body)
-    local currentPath = os.getenv("CD")
-    local file = assert(io.open(("%s/lldebugger.lua"):format(currentPath), "w+"),
-        ("Unable to find '%s/lldebugger.lua'!"):format(currentPath))
-
-    local content = file:write(body)
+    local currentPath = io.popen("cd"):read("*l")
+    local file = assert(io.open(("%s/mods/noita-vscode-debugger/lldebugger.lua"):format(currentPath), "w+"),
+        ("Unable to find '%s/mods/noita-vscode-debugger/lldebugger.lua'!"):format(currentPath))
+    file:write(body)
+    file:flush()
     file:close()
-    print(("Successfully updated 'lldebugger.lua' in project directory!"))
+    print(("Successfully updated 'lldebugger.lua' in project directory '%s/mods/noita-vscode-debugger'!"):format(currentPath))
 end
 
 ---GitHubFixes constructor.

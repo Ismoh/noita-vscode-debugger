@@ -5,7 +5,7 @@ end
 local fileUtils = require("mods/noita-vscode-debugger/file_utils"):new()
 fileUtils:fixPackagePath()
 
-if not lldebugger then
+local fixDebugger = function()
     print("Looks like VSCode extension fixes needs to be applied..")
 
     local extensionPath = fileUtils:getVSCodeExtensionPath()
@@ -23,6 +23,14 @@ if not lldebugger then
     lldebugger = require("lldebugger")
     lldebugger.start()
 end
+
+if not lldebugger then
+    fixDebugger()
+end
+
+fileUtils = nil -- free as much memory as possible
+fixDebugger = nil -- free as much memory as possible
+
 lldebugger.pullBreakpoints()
 lldebugger._VERSION = "v0.3.3"
 
