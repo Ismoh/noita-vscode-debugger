@@ -8,6 +8,7 @@ luac.out
 .luarocks
 lua.bat
 luarocks.bat
+mods/noita-vscode-debugger/lua_modules/lib/luarocks/**
 
 # Object files
 *.o
