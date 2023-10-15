@@ -40,5 +40,5 @@ luac.out
 *.hex
 
 # Excludes
-!LuaJIT-2.1.0-beta3/**
+!.build/**
 !core.dll
