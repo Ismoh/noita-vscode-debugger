@@ -5,9 +5,9 @@ luac.out
 *.src.rock
 *.zip
 *.tar.gz
-mods/noita-vscode-debugger/.luarocks
-mods/noita-vscode-debugger/lua.bat
-mods/noita-vscode-debugger/luarocks.bat
+.luarocks
+lua.bat
+luarocks.bat
 
 # Object files
 *.o

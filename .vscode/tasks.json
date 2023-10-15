@@ -21,7 +21,7 @@
       "label": "LuaRocks awesome init",
       "type": "shell",
       "windows": {
-        "command": "${workspaceFolder}\\.vscode\\luarocks-init-project.cmd"
+        "command": "${workspaceFolder}\\.build\\luarocks-init-project.cmd"
       },
       "args": ["${userHome}\\AppData\\Roaming\\luarocks", "${workspaceFolder}"],
       "problemMatcher": []
