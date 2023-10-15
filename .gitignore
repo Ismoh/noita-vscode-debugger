@@ -46,3 +46,4 @@ mods/noita-vscode-debugger/lua_modules/lib/luarocks/**
 # Excludes
 !.build/**
 !core.dll
+!ssl.dll

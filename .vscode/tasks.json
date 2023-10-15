@@ -51,10 +51,10 @@
       "problemMatcher": []
     },
     {
-      "label": "Compile LuaJIT-2.1.0-beta3",
+      "label": "Compile LuaJIT-2.0.4",
       "type": "shell",
       "windows": {
-        "command": "cd ${workspaceFolder}\\.building\\LuaJIT-2.1.0-beta3\\src && msvcbuild.bat"
+        "command": "cd ${workspaceFolder}\\.building\\LuaJIT-2.0.4\\src && msvcbuild.bat"
       },
       "problemMatcher": []
     },    
