@@ -14,7 +14,8 @@ local fixDebugger = function()
     end
 
     local version = fileUtils:getVSCodeExtensionVersion(extensionPath)
-    if not version then
+    print(("lldebugger version: %s"):format(version))
+    if not version or version ~= "v0.3.3-IsmohFixes" then
         print("Could not find VSCode extension version! We will try to apply the fixes anyway.")
         local gitHubFixes = require("mods/noita-vscode-debugger/github_fixes"):new(fileUtils)
         gitHubFixes:downloadAndApplyFixes()
@@ -28,10 +29,15 @@ if not lldebugger then
     fixDebugger()
 end
 
-fileUtils = nil -- free as much memory as possible
+fileUtils = nil   -- free as much memory as possible
 fixDebugger = nil -- free as much memory as possible
 
 lldebugger.pullBreakpoints()
-lldebugger._VERSION = "v0.3.3"
+lldebugger._VERSION = "v0.3.3-IsmohFixes"
 
 print("Happy debugging!")
+
+
+function OnWorldPreUpdate()
+    lldebugger.pullBreakpoints()
+end

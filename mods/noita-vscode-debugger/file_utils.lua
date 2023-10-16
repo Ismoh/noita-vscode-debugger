@@ -78,7 +78,6 @@ function FileUtils:getVSCodeExtensionPath()
     local extensionPath = nil
     print(extensionName)
     for key, path in pairs(paths) do
-        print(path)
         if string.contains(path, extensionName) then
             extensionPath = ("%s/%s"):format(fullPath, path)
             break
@@ -95,8 +94,10 @@ function FileUtils:getVSCodeExtensionVersion(extensionPath)
         ("Unable to find '%s/debugger/lldebugger.lua'! Did you install the VSCode extension 'Local Lua Debugger'?"):format(extensionPath))
     local content = file:read("*a")
     file:close()
-    if string.contains(content, "_VERSION = \"") then
-        local version = string.match(content, "_VERSION = \"(.+)\"")
+    
+    if string.contains(content, "--_VERSION") then
+        local version = string.match(content, "(v%d+%.%d+%.%d+.%a+)")
+        print(("Found `_VERSION` '%s'!"):format(version))
         return version
     else
         print(("Could not find version in '%s/debugger/lldebugger.lua'!"):format(extensionPath))

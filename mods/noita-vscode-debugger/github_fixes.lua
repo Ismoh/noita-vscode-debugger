@@ -2,12 +2,21 @@ local GitHubFixes = {
     filesToFix = {
         --"package-lock.json",
         "debugger/debugger.ts",
+        "debugger/lldebugger.lua.map", -- not needed
         "debugger/lldebugger.lua",
         "debugger/lldebugger.ts",
         "debugger/protocol.d.ts",
+
+        "extension/debugAdapter.js",
+        "extension/debugPipe.js",
         "extension/debugPipe.ts",
+        "extension/extension.js",
+        "extension/launchConfig.js",
         "extension/launchConfig.ts",
+        "extension/luaDebugSession.js",
         "extension/luaDebugSession.ts",
+        "extension/message.js",
+
         "package.json"
     }
 }
@@ -24,13 +33,16 @@ function GitHubFixes:downloadAndApplyFixes()
         end
         print(("Successfully downloaded '%s' from GitHub!"):format(relativeFilePath))
 
-        self:applyFixes(relativeFilePath, body)
-
         if string.contains(relativeFilePath, "lldebugger.lua") then
+            body = [[--_VERSION = "v0.3.3-IsmohFixes"
+]] .. body
             self:updateLLDebbugerLua(body)
         end
+        self:applyFixes(relativeFilePath, body)
     end
     print("Successfully applied all fixes!")
+
+    GamePrintImportant("Restart your debug session!", "Successfully applied all fixes to Local Lua Debugger! Make sure to restart your debug session!")
 end
 
 function GitHubFixes:applyFixes(relativeFilePath, body)
