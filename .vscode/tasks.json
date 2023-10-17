@@ -51,10 +51,10 @@
       "problemMatcher": []
     },
     {
-      "label": "Compile LuaJIT-2.0.4",
+      "label": "7zip release",
       "type": "shell",
       "windows": {
-        "command": "cd ${workspaceFolder}\\.building\\LuaJIT-2.0.4\\src && msvcbuild.bat"
+        "command": "cd ${workspaceFolder} && \"C:\\Program Files\\7-Zip\\7z.exe\" a -tzip release\\noita-vscode-debugger-v${input:version}.zip mods -xr!mods\\noita-vscode-debugger\\.luarocks -xr!mods\\noita-vscode-debugger\\lua.bat -xr!mods\\noita-vscode-debugger\\luarocks.bat"
       },
       "problemMatcher": []
     },    
@@ -70,6 +70,11 @@
       "description": "Keep blank for console output otherwise write in file!",
       "type": "pickString",
       "options": ["", " > result.log"]
+    },
+    {
+      "id": "version",
+      "description": "Write version number, like '0.0.1'!",
+      "type": "promptString"
     }
   ]
 }
