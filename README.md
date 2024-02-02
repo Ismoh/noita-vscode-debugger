@@ -6,17 +6,17 @@
     go to `C:\Program Files (x86)\Steam\steamapps\common\Noita\mods\` and extract it there. [need help?](https://noita.wiki.gg/wiki/How_to_install_mods#Manual)
 4. Open your current own project in VSCode and add the following to your `launch.json` file:
     <https://github.com/Ismoh/noita-vscode-debugger/blob/4dbdf6fd7b458466cefed01cda94b919d930bb28/.vscode/launch.json#L1-L19>
-6. Double check if `"cwd"` needs to be changed to Noita installation path. [need help?](https://help.steampowered.com/en/faqs/view/4BD4-4528-6B2E-8327#:~:text=Navigate%20to%20your%20Steam%20client,installations%20can%20be%20installed%20there.)
-7. Press `F5` to start debugging.
-8. Make sure `noita-vscode-debugger` mod is enabled in the mod list\
+5. Double check if `"cwd"` needs to be changed to Noita installation path. [need help?](https://help.steampowered.com/en/faqs/view/4BD4-4528-6B2E-8327#:~:text=Navigate%20to%20your%20Steam%20client,installations%20can%20be%20installed%20there.)
+6. Press `F5` to start debugging.
+7. Make sure `noita-vscode-debugger` mod is enabled in the mod list\
     and above any other mod that you want to debug.
-9. Enable unsafe mode in Noita\
+8. Enable unsafe mode in Noita\
     [need help?](https://noita.wiki.gg/wiki/How_to_install_mods#Enabling) and [still no clue?](https://noita.wiki.gg/wiki/Modding:_Lua_API#Lua_Tables)
     ![unsafe-mode-enabled-screenshot](res/unsafe-mode-enabled.png)
-10. Click on `Start a new game with enabled mods active`\
+9. Click on `Start a new game with enabled mods active`\
     or click on `Continue` if you already have a save file with the mod enabled\
     or finally click on `New Game`.
-11. Enjoy debugging!
+10. Enjoy debugging!
 
 ## Help
 
