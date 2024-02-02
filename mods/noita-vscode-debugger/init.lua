@@ -17,6 +17,7 @@ local fixDebugger = function()
     print(("lldebugger version: %s"):format(version))
     if not version or version ~= "v0.3.3-IsmohFixes" then
         print("Could not find VSCode extension version! We will try to apply the fixes anyway.")
+        ---@type GitHubFixes
         local gitHubFixes = require("mods/noita-vscode-debugger/github_fixes"):new(fileUtils)
         gitHubFixes:downloadAndApplyFixes()
     end

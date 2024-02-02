@@ -94,7 +94,7 @@ function FileUtils:getVSCodeExtensionVersion(extensionPath)
         ("Unable to find '%s/debugger/lldebugger.lua'! Did you install the VSCode extension 'Local Lua Debugger'?"):format(extensionPath))
     local content = file:read("*a")
     file:close()
-    
+
     if string.contains(content, "--_VERSION") then
         local version = string.match(content, "(v%d+%.%d+%.%d+.%a+)")
         print(("Found `_VERSION` '%s'!"):format(version))
