@@ -6,14 +6,18 @@
       "type": "lua-local",
       "request": "launch",
       "program": {
-        "command": "noita_dev.exe",
+        "command": "C:/Program Files (x86)/Steam/steamapps/common/Noita/noita_dev_log.exe",
         "communication": "stdio"
       },
-      "args": ["-debug_lua", "-profiler_file", "-bench_num_samples 1000", "-debug", ],
-      "stopOnEntry": true,
-      "cwd": "C:/Program Files (x86)/Steam/steamapps/common/Noita",
+      "args": ["-debug_lua", "-no-console", "-luadebugger"],
+      "stopOnEntry": false,
+      "cwd": "C:/Program Files (x86)/Steam/steamapps/common/Noita/",
+      "env": {
+        "LOCAL_LUA_DEBUGGER_VSCODE": "1"
+      },
+      "verbose": true,
       "pullBreakpointsSupport": true,
-      "verbose": true // optional
+      "scriptFiles": ["${workspaceFolder}/mods/noita-vscode-debugger/**/*.lua"],
     }
   ]
 }
