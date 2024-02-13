@@ -1,7 +1,12 @@
-# 10 bullet points to debug Noita
+# Noita VSCode Debugger
+
+Noita VSCode Debugger is a mod for [Noita](https://noitagame.com/) that allows you to debug your Lua code using [VSCode](https://code.visualstudio.com/).
+> **BUT** unfortunately you cannot debug Noita Lua Components, because necessary functions are not available in that Lua context.
+
+## 10 bullet points to debug Noita
 
 1. Install [Noita](https://noitagame.com/) from [Steam](https://store.steampowered.com/app/881100/Noita/)
-2. Install [lldebugger](https://marketplace.visualstudio.com/items?itemName=tomblind.local-lua-debugger-vscode) as VSCode extension and make sure to let some love to the author by giving a star to the [project](https://github.com/tomblind/local-lua-debugger-vscode).
+2. Install [lldebugger](https://github.com/Ismoh/local-lua-debugger-vscode/releases/latest) as VSCode extension and make sure to let some love to the author by giving a star to the [project](https://github.com/tomblind/local-lua-debugger-vscode).
 3. Download [noita-vscode-debugger](https://github.com/Ismoh/noita-vscode-debugger/releases) mod and\
     go to `C:\Program Files (x86)\Steam\steamapps\common\Noita\mods\` and extract it there. [need help?](https://noita.wiki.gg/wiki/How_to_install_mods#Manual)
 4. Open your current own project in VSCode and add the following to your `launch.json` file: [launch.json](.vscode/launch.json)
@@ -16,6 +21,8 @@
     or click on `Continue` if you already have a save file with the mod enabled\
     or finally click on `New Game`.
 10. Enjoy debugging!
+
+Didn't work? Take a look on [In case of issues](#in-case-of-issues).
 
 ## Help
 
@@ -36,10 +43,10 @@ cd 'C:\Program Files (x86)\Steam\steamapps\common\Noita'; Get-Content -Path "log
 `"args": ["-debug_lua", "-no-console", "-luadebugger"],` and\
 `"pullBreakpointsSupport": true,`\
 are set in `.vscode/launch.json`\
-You can copy and paste [launch.json](.vscode/launch.json) from this repository, **BUT** make sure to change `noita-vscode-debugger` to your own mod name / mod string id.
+You can copy and paste [launch.json](.vscode/launch.json) from this repository, **BUT** make sure to change `noita-vscode-debugger` to your own mod name / mod string id. `CTRL+R` is the key.
 
 - Open windows file explorer with\
-`%USERPROFILE%/.vscode/extensions/tomblind.local-lua-debugger-vscode-0.3.3/debugger/`\
+`%USERPROFILE%/.vscode/extensions/ismoh.local-lua-debugger-vscode-0.3.3/debugger/`\
 and remove the first line of `lldebugger.lua`, which is
 
     > --_VERSION = "v0.3.3-IsmohFixes"
