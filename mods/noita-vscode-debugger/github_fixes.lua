@@ -1,8 +1,7 @@
 local GitHubFixes = {
     filesToFix = {
-        --"package-lock.json",
         "debugger/debugger.ts",
-        "debugger/lldebugger.lua.map", -- not needed
+        "debugger/lldebugger.lua.map",
         "debugger/lldebugger.lua",
         "debugger/lldebugger.ts",
         "debugger/protocol.d.ts",
@@ -57,8 +56,9 @@ end
 
 function GitHubFixes:updateLLDebbugerLua(body)
     local currentPath = io.popen("cd"):read("*l")
-    local file = assert(io.open(("%s/mods/noita-vscode-debugger/lldebugger.lua"):format(currentPath), "w+"),
-        ("Unable to find '%s/mods/noita-vscode-debugger/lldebugger.lua'!"):format(currentPath))
+    local modDestinationPath = ("%s/lldebugger.lua"):format(os.getenv("DESTINATION_PATH") or "mods/noita-vscode-debugger")
+    local file = assert(io.open(("%s/%s"):format(currentPath, modDestinationPath), "w+"),
+        ("Unable to find '%s/%s'!"):format(currentPath, modDestinationPath))
     file:write(body)
     file:flush()
     file:close()

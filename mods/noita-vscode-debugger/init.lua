@@ -14,29 +14,31 @@ local fixDebugger = function()
     end
 
     local version = fileUtils:getVSCodeExtensionVersion(extensionPath)
-    print(("lldebugger version: %s"):format(version))
     if not version or version ~= "v0.3.3-IsmohFixes" then
         print("Could not find VSCode extension version! We will try to apply the fixes anyway.")
-        ---@type GitHubFixes
-        local gitHubFixes = require("mods/noita-vscode-debugger/github_fixes"):new(fileUtils)
-        gitHubFixes:downloadAndApplyFixes()
+    else
+        print(("Found lldebugger version: %s"):format(version))
     end
+    print("Updating lldebugger.lua anyways. No matter the version.")
 
-    lldebugger = require("lldebugger")
-    lldebugger.start()
+    ---@type GitHubFixes
+    local gitHubFixes = require("mods/noita-vscode-debugger/github_fixes"):new(fileUtils)
+    gitHubFixes:downloadAndApplyFixes()
 end
 
 if not lldebugger then
     fixDebugger()
+    lldebugger = require("lldebugger")
+    lldebugger.start()
+    lldebugger.pullBreakpoints()
+    lldebugger._VERSION = "v0.3.3-IsmohFixes"
 end
 
 fileUtils = nil   -- free as much memory as possible
 fixDebugger = nil -- free as much memory as possible
 
-lldebugger.pullBreakpoints()
-lldebugger._VERSION = "v0.3.3-IsmohFixes"
-
-print("Happy debugging!")
+print("\27[32m Happy debugging! \27[0m")
+print("\27[33m Make sure to disable this mod again, after the first run! (optional) \27[0m")
 
 
 function OnWorldPreUpdate()
