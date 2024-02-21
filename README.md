@@ -26,7 +26,7 @@ Didn't work? Take a look on [In case of issues](#in-case-of-issues).
 
 ## Help
 
-Need help with the debugger itself? [Go ahead!](https://github.com/tomblind/local-lua-debugger-vscode)
+Need help with the debugger itself? [Go ahead!](https://github.com/ismoh/local-lua-debugger-vscode)
 
 Need help reading the logs? [Go ahead!](https://steamcommunity.com/workshop/filedetails/?id=2124936579)\
 I am using `powershell`:

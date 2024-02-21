@@ -70,11 +70,11 @@ function FileUtils:fixPackagePath()
 end
 
 ---Searches for the extension path of the VSCode extension "Local Lua Debugger".
----@return string|nil extensionPath The path to the extension 'tomblind.local-lua-debugger-vscode-{version}'.
+---@return string|nil extensionPath The path to the extension 'ismoh.local-lua-debugger-vscode-{version}'.
 function FileUtils:getVSCodeExtensionPath()
     local fullPath = io.popen('echo %USERPROFILE%/.vscode/extensions'):read("*l")
     local paths = string.split(io.popen('dir /X /AD /B "%USERPROFILE%/.vscode/extensions/"'):read("*a"), "\n")
-    local extensionName = "tomblind.local-lua-debugger-vscode-"
+    local extensionName = "ismoh.local-lua-debugger-vscode-"
     local extensionPath = nil
     print(extensionName)
     for key, path in pairs(paths) do
@@ -87,7 +87,7 @@ function FileUtils:getVSCodeExtensionPath()
 end
 
 ---Searches for the version of the VSCode extension "Local Lua Debugger" inside of 'lldebugger.lua'.
----@param extensionPath string The path to the extension 'tomblind.local-lua-debugger-vscode-{version}'. Required!
+---@param extensionPath string The path to the extension 'ismoh.local-lua-debugger-vscode-{version}'. Required!
 ---@return string|nil version The version of the VSCode extension 'Local Lua Debugger'.
 function FileUtils:getVSCodeExtensionVersion(extensionPath)
     local file = assert(io.open(("%s/debugger/lldebugger.lua"):format(extensionPath), "r"),
